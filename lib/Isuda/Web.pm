@@ -59,6 +59,14 @@ sub dbh_star {
     });
 }
 
+sub memc {
+    my ($self) = @_;
+    return $self->{memc} //= Cache::Memcached::Fast->new({
+        servers => [ { address => 'localhost:11211' }],
+        utf8 => 1,
+    });
+}
+
 filter 'set_name' => sub {
     my $app = shift;
     sub {
@@ -112,10 +120,7 @@ get '/' => [qw/set_name/] => sub {
     ]);
     my $stars_of = $self->bulk_load_starts(map { $_->{keyword} } @$entries);
 
-    my $mem = Cache::Memcached::Fast->new({
-        servers => [ { address => 'localhost:11211' }],
-        utf8 => 1,
-    });
+    my $mem = $self->memc();
 
     my $cache = $mem->get_multi(map { $_->{keyword} } @$entries);
 
