@@ -13,3 +13,5 @@ requires 'Plack::Session';
 requires 'Starlet';
 requires 'Furl';
 requires 'Proclet';
+requires 'Cache::Memcached::Fast';
+requires 'Devel::KYTProf';

@@ -13,6 +13,7 @@ use Digest::SHA1 qw/sha1_hex/;
 use URI::Escape qw/uri_escape_utf8/;
 use Text::Xslate::Util qw/html_escape/;
 use List::Util qw/min max/;
+use Cache::Memcached::Fast;
 
 sub config {
     state $conf = {
@@ -58,6 +59,14 @@ sub dbh_star {
     });
 }
 
+sub memc {
+    my ($self) = @_;
+    return $self->{memc} //= Cache::Memcached::Fast->new({
+        servers => [ { address => 'localhost:11211' }],
+        utf8 => 1,
+    });
+}
+
 filter 'set_name' => sub {
     my $app = shift;
     sub {
@@ -92,6 +101,9 @@ get '/initialize' => sub {
     my $origin = config('isutar_origin');
     my $url = URI->new("$origin/initialize");
     Furl->new->get($url);
+
+    $self->memc()->flush_all();
+
     $c->render_json({
         result => 'ok',
     });
@@ -110,8 +122,19 @@ get '/' => [qw/set_name/] => sub {
         OFFSET @{[ $PER_PAGE * ($page-1) ]}
     ]);
     my $stars_of = $self->bulk_load_starts(map { $_->{keyword} } @$entries);
+
+    my $mem = $self->memc();
+
+    my $cache = $mem->get_multi(map { $_->{keyword} } @$entries);
+
     foreach my $entry (@$entries) {
-        $entry->{html}  = $self->htmlify($c, $entry->{description});
+        if ($cache->{$entry->{keyword}}) {
+            $entry->{html} = $cache->{$entry->{keyword}};
+        } else {
+            my $desc_html = $self->htmlify($c, $entry->{description});
+            $entry->{html} = $desc_html;
+            $mem->set($entry->{keyword}, $desc_html, 120);
+        }
         $entry->{stars} = $stars_of->{$entry->{keyword}};
     }
 
@@ -147,6 +170,8 @@ post '/keyword' => [qw/set_name authenticate/] => sub {
         ON DUPLICATE KEY UPDATE
         author_id = ?, keyword = ?, stored_length = ?, description = ?, updated_at = NOW()
     ], ($user_id, $keyword, length($keyword), $description) x 2);
+
+    $self->memc()->flush_all();
 
     $c->redirect('/');
 };
@@ -241,6 +266,9 @@ post '/keyword/:keyword' => [qw/set_name authenticate/] => sub {
         DELETE FROM entry
         WHERE keyword = ?
     ], $keyword);
+
+    $self->memc()->flush_all();
+
     $c->redirect('/');
 };
 
