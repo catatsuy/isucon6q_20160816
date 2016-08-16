@@ -248,7 +248,7 @@ sub htmlify {
     my ($self, $c, $content) = @_;
     return '' unless defined $content;
     my $keywords = $self->dbh->select_all(qq[
-        SELECT * FROM entry ORDER BY CHARACTER_LENGTH(keyword) DESC
+        SELECT * FROM entry ORDER BY `stored_length` DESC;
     ]);
 
     my %kw2sha;
