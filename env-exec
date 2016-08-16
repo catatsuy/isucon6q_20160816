@@ -1,0 +1,14 @@
+#!/bin/sh
+set -e
+cd $(dirname $0)
+
+export USER=isucon
+export HOME=/home/$USER
+export PLACK_ENV=production
+export PATH="$HOME/.local/perl/bin:local/bin:$PATH"
+export PERL5LIB="lib:local/lib/perl5"
+
+export ISUDA_DB_PASSWORD=root
+
+exec "$@"
+
