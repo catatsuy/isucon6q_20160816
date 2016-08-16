@@ -4,9 +4,7 @@ CREATE TABLE entry (
     keyword VARCHAR(191) UNIQUE,
     description MEDIUMTEXT,
     updated_at DATETIME NOT NULL,
-    created_at DATETIME NOT NULL,
-    stored_length INT(11),
-    INDEX idx_stored_length(stored_length)
+    created_at DATETIME NOT NULL
 ) Engine=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 CREATE TABLE user (
