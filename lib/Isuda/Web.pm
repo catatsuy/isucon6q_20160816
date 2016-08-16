@@ -44,6 +44,20 @@ sub dbh {
     });
 }
 
+sub dbh_star {
+    my ($self) = @_;
+    return $self->{dbh_star} //= DBIx::Sunny->connect('dbi:mysql:isutar', config('db_user'), config('db_password'), {
+        Callbacks => {
+            connected => sub {
+                my $dbh = shift;
+                $dbh->do(q[SET SESSION sql_mode='TRADITIONAL,NO_AUTO_VALUE_ON_ZERO,ONLY_FULL_GROUP_BY']);
+                $dbh->do('SET NAMES utf8mb4');
+                return;
+            },
+        },
+    });
+}
+
 filter 'set_name' => sub {
     my $app = shift;
     sub {
@@ -95,9 +109,10 @@ get '/' => [qw/set_name/] => sub {
         LIMIT $PER_PAGE
         OFFSET @{[ $PER_PAGE * ($page-1) ]}
     ]);
+    my $stars_of = $self->bulk_load_starts(map { $_->{keyword} } @$entries);
     foreach my $entry (@$entries) {
         $entry->{html}  = $self->htmlify($c, $entry->{description});
-        $entry->{stars} = $self->load_stars($entry->{keyword});
+        $entry->{stars} = $stars_of->{$entry->{keyword}};
     }
 
     my $total_entries = $self->dbh->select_one(q[
@@ -235,6 +250,7 @@ sub htmlify {
     my $keywords = $self->dbh->select_all(qq[
         SELECT * FROM entry ORDER BY CHARACTER_LENGTH(keyword) DESC
     ]);
+
     my %kw2sha;
     my $re = join '|', map { quotemeta $_->{keyword} } @$keywords;
     $content =~ s{($re)}{
@@ -252,14 +268,19 @@ sub htmlify {
 
 sub load_stars {
     my ($self, $keyword) = @_;
-    my $origin = config('isutar_origin');
-    my $url = URI->new("$origin/stars");
-    $url->query_form(keyword => $keyword);
-    my $ua = Furl->new;
-    my $res = $ua->get($url);
-    my $data = decode_json $res->content;
+    my $rows = $self->dbh_star->select_all("SELECT * FROM star WHERE keyword = ?", $keyword);
+    $rows;
+}
 
-    $data->{stars};
+sub bulk_load_starts {
+    my ($self, @keywords) = @_;
+    my $rows = $self->dbh_star->select_all("SELECT * FROM star WHERE keyword IN (?)", \@keywords);
+    my $keyword_of = {};
+    for my $row (@$rows) {
+        $keyword_of->{$row->{'keyword'}} ||= [];
+        push @{$keyword_of->{$row->{'keyword'}}}, $row;
+    }
+    return $keyword_of;
 }
 
 sub is_spam_contents {
