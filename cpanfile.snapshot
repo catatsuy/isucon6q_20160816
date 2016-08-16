@@ -3,24 +3,24 @@ DISTRIBUTIONS
   AnyEvent-7.12
     pathname: M/ML/MLEHMANN/AnyEvent-7.12.tar.gz
     provides:
-      AE undef
+      AE 0
       AE::Log::COLLECT undef
       AE::Log::FILTER undef
       AE::Log::LOG undef
       AnyEvent 7.12
-      AnyEvent::Base 7.12
-      AnyEvent::CondVar 7.12
-      AnyEvent::CondVar::Base 7.12
-      AnyEvent::DNS undef
+      AnyEvent::Base undef
+      AnyEvent::CondVar undef
+      AnyEvent::CondVar::Base undef
+      AnyEvent::DNS 0
       AnyEvent::Debug undef
       AnyEvent::Debug::Backtrace undef
       AnyEvent::Debug::Wrap undef
       AnyEvent::Debug::Wrapped undef
       AnyEvent::Debug::shell undef
-      AnyEvent::Handle undef
+      AnyEvent::Handle 0
       AnyEvent::IO undef
-      AnyEvent::IO::IOAIO undef
-      AnyEvent::IO::Perl undef
+      AnyEvent::IO::IOAIO 0
+      AnyEvent::IO::Perl 0
       AnyEvent::Impl::Cocoa undef
       AnyEvent::Impl::EV undef
       AnyEvent::Impl::Event undef
@@ -30,22 +30,22 @@ DISTRIBUTIONS
       AnyEvent::Impl::IOAsync undef
       AnyEvent::Impl::Irssi undef
       AnyEvent::Impl::POE undef
-      AnyEvent::Impl::Perl undef
+      AnyEvent::Impl::Perl 0
       AnyEvent::Impl::Qt undef
       AnyEvent::Impl::Qt::Io undef
       AnyEvent::Impl::Qt::Timer undef
       AnyEvent::Impl::Tk undef
       AnyEvent::Impl::UV undef
-      AnyEvent::Log undef
+      AnyEvent::Log 0
       AnyEvent::Log::COLLECT undef
       AnyEvent::Log::Ctx undef
       AnyEvent::Log::FILTER undef
       AnyEvent::Log::LOG undef
-      AnyEvent::Loop undef
-      AnyEvent::Socket undef
+      AnyEvent::Loop 0
+      AnyEvent::Socket 0
       AnyEvent::Strict undef
-      AnyEvent::TLS undef
-      AnyEvent::Util undef
+      AnyEvent::TLS 0
+      AnyEvent::Util 0
     requirements:
       Canary::Stability 0
       ExtUtils::MakeMaker 6.52
@@ -67,35 +67,42 @@ DISTRIBUTIONS
       POSIX::strftime::Compiler 0.30
       Time::Local 0
       perl 5.008001
-  CGI-4.32
-    pathname: L/LE/LEEJO/CGI-4.32.tar.gz
+  CPAN-Meta-2.150005
+    pathname: D/DA/DAGOLDEN/CPAN-Meta-2.150005.tar.gz
     provides:
-      CGI 4.32
-      CGI::Carp 4.32
-      CGI::Cookie 4.32
-      CGI::File::Temp 4.32
-      CGI::HTML::Functions undef
-      CGI::MultipartBuffer 4.32
-      CGI::Pretty 4.32
-      CGI::Push 4.32
-      CGI::Util 4.32
-      Fh 4.32
+      CPAN::Meta 2.150005
+      CPAN::Meta::Converter 2.150005
+      CPAN::Meta::Feature 2.150005
+      CPAN::Meta::History 2.150005
+      CPAN::Meta::Merge 2.150005
+      CPAN::Meta::Prereqs 2.150005
+      CPAN::Meta::Spec 2.150005
+      CPAN::Meta::Validator 2.150005
     requirements:
+      CPAN::Meta::Requirements 2.121
+      CPAN::Meta::YAML 0.008
       Carp 0
-      Config 0
-      Encode 0
+      ExtUtils::MakeMaker 6.17
+      JSON::PP 2.27200
+      Parse::CPAN::Meta 1.4414
+      Scalar::Util 0
+      perl 5.008
+      strict 0
+      version 0.88
+      warnings 0
+  CPAN-Meta-YAML-0.018
+    pathname: D/DA/DAGOLDEN/CPAN-Meta-YAML-0.018.tar.gz
+    provides:
+      CPAN::Meta::YAML 0.018
+    requirements:
+      B 0
+      Carp 0
       Exporter 0
-      ExtUtils::MakeMaker 0
-      File::Spec 0.82
-      File::Temp 0.17
-      HTML::Entities 3.69
-      base 0
-      if 0
-      overload 0
-      parent 0.225
+      ExtUtils::MakeMaker 6.17
+      Fcntl 0
+      Scalar::Util 0
       perl 5.008001
       strict 0
-      utf8 0
       warnings 0
   Canary-Stability-2011
     pathname: M/ML/MLEHMANN/Canary-Stability-2011.tar.gz
@@ -148,9 +155,9 @@ DISTRIBUTIONS
       Bundle::DBD::mysql 4.035
       DBD::mysql 4.035
       DBD::mysql::GetInfo undef
-      DBD::mysql::db 4.035
-      DBD::mysql::dr 4.035
-      DBD::mysql::st 4.035
+      DBD::mysql::db undef
+      DBD::mysql::dr undef
+      DBD::mysql::st undef
     requirements:
       DBI 1.609
       Data::Dumper 0
@@ -161,24 +168,24 @@ DISTRIBUTIONS
     provides:
       Bundle::DBI 12.008696
       DBD::DBM 0.08
-      DBD::DBM::Statement 0.08
-      DBD::DBM::Table 0.08
-      DBD::DBM::db 0.08
-      DBD::DBM::dr 0.08
-      DBD::DBM::st 0.08
+      DBD::DBM::Statement undef
+      DBD::DBM::Table undef
+      DBD::DBM::db undef
+      DBD::DBM::dr undef
+      DBD::DBM::st undef
       DBD::ExampleP 12.014311
-      DBD::ExampleP::db 12.014311
-      DBD::ExampleP::dr 12.014311
-      DBD::ExampleP::st 12.014311
+      DBD::ExampleP::db undef
+      DBD::ExampleP::dr undef
+      DBD::ExampleP::st undef
       DBD::File 0.44
-      DBD::File::DataSource::File 0.44
-      DBD::File::DataSource::Stream 0.44
-      DBD::File::Statement 0.44
-      DBD::File::Table 0.44
-      DBD::File::TableSource::FileSystem 0.44
-      DBD::File::db 0.44
-      DBD::File::dr 0.44
-      DBD::File::st 0.44
+      DBD::File::DataSource::File undef
+      DBD::File::DataSource::Stream undef
+      DBD::File::Statement undef
+      DBD::File::Table undef
+      DBD::File::TableSource::FileSystem undef
+      DBD::File::db undef
+      DBD::File::dr undef
+      DBD::File::st undef
       DBD::Gofer 0.015327
       DBD::Gofer::Policy::Base 0.010088
       DBD::Gofer::Policy::classic 0.010088
@@ -189,23 +196,23 @@ DISTRIBUTIONS
       DBD::Gofer::Transport::null 0.010088
       DBD::Gofer::Transport::pipeone 0.010088
       DBD::Gofer::Transport::stream 0.014599
-      DBD::Gofer::db 0.015327
-      DBD::Gofer::dr 0.015327
-      DBD::Gofer::st 0.015327
+      DBD::Gofer::db undef
+      DBD::Gofer::dr undef
+      DBD::Gofer::st undef
       DBD::NullP 12.014715
-      DBD::NullP::db 12.014715
-      DBD::NullP::dr 12.014715
-      DBD::NullP::st 12.014715
+      DBD::NullP::db undef
+      DBD::NullP::dr undef
+      DBD::NullP::st undef
       DBD::Proxy 0.2004
-      DBD::Proxy::RPC::PlClient 0.2004
-      DBD::Proxy::db 0.2004
-      DBD::Proxy::dr 0.2004
-      DBD::Proxy::st 0.2004
+      DBD::Proxy::RPC::PlClient undef
+      DBD::Proxy::db undef
+      DBD::Proxy::dr undef
+      DBD::Proxy::st undef
       DBD::Sponge 12.010003
-      DBD::Sponge::db 12.010003
-      DBD::Sponge::dr 12.010003
-      DBD::Sponge::st 12.010003
-      DBDI 12.015129
+      DBD::Sponge::db undef
+      DBD::Sponge::dr undef
+      DBD::Sponge::st undef
+      DBDI undef
       DBI 1.636
       DBI::Const::GetInfo::ANSI 2.008697
       DBI::Const::GetInfo::ODBC 2.011374
@@ -214,15 +221,15 @@ DISTRIBUTIONS
       DBI::DBD 12.015129
       DBI::DBD::Metadata 2.014214
       DBI::DBD::SqlEngine 0.06
-      DBI::DBD::SqlEngine::DataSource 0.06
-      DBI::DBD::SqlEngine::Statement 0.06
-      DBI::DBD::SqlEngine::Table 0.06
-      DBI::DBD::SqlEngine::TableSource 0.06
-      DBI::DBD::SqlEngine::TieMeta 0.06
-      DBI::DBD::SqlEngine::TieTables 0.06
-      DBI::DBD::SqlEngine::db 0.06
-      DBI::DBD::SqlEngine::dr 0.06
-      DBI::DBD::SqlEngine::st 0.06
+      DBI::DBD::SqlEngine::DataSource undef
+      DBI::DBD::SqlEngine::Statement undef
+      DBI::DBD::SqlEngine::Table undef
+      DBI::DBD::SqlEngine::TableSource undef
+      DBI::DBD::SqlEngine::TieMeta undef
+      DBI::DBD::SqlEngine::TieTables undef
+      DBI::DBD::SqlEngine::db undef
+      DBI::DBD::SqlEngine::dr undef
+      DBI::DBD::SqlEngine::st undef
       DBI::Gofer::Execute 0.014283
       DBI::Gofer::Request 0.012537
       DBI::Gofer::Response 0.011566
@@ -238,15 +245,15 @@ DISTRIBUTIONS
       DBI::ProfileDumper::Apache 2.014121
       DBI::ProfileSubs 0.009396
       DBI::ProxyServer 0.3005
-      DBI::ProxyServer::db 0.3005
-      DBI::ProxyServer::dr 0.3005
-      DBI::ProxyServer::st 0.3005
+      DBI::ProxyServer::db undef
+      DBI::ProxyServer::dr undef
+      DBI::ProxyServer::st undef
+      DBI::PurePerl 2.014286
       DBI::SQL::Nano 1.015544
-      DBI::SQL::Nano::Statement_ 1.015544
-      DBI::SQL::Nano::Table_ 1.015544
+      DBI::SQL::Nano::Statement_ undef
+      DBI::SQL::Nano::Table_ undef
       DBI::Util::CacheMemory 0.010315
-      DBI::Util::_accessor 0.009479
-      DBI::common 1.636
+      DBI::common undef
     requirements:
       ExtUtils::MakeMaker 6.48
       Test::Simple 0.90
@@ -275,7 +282,7 @@ DISTRIBUTIONS
     pathname: N/NE/NEKOKAK/DBIx-TransactionManager-1.13.tar.gz
     provides:
       DBIx::TransactionManager 1.13
-      DBIx::TransactionManager::ScopeGuard 1.13
+      DBIx::TransactionManager::ScopeGuard undef
     requirements:
       DBI 0
       ExtUtils::MakeMaker 6.36
@@ -333,6 +340,12 @@ DISTRIBUTIONS
       Test::Requires 0
       parent 0
       perl 5.008001
+  Devel-PPPort-3.35
+    pathname: W/WO/WOLFSAGE/Devel-PPPort-3.35.tar.gz
+    provides:
+      Devel::PPPort 3.35
+    requirements:
+      ExtUtils::MakeMaker 0
   Devel-StackTrace-2.01
     pathname: D/DR/DROLSKY/Devel-StackTrace-2.01.tar.gz
     provides:
@@ -428,6 +441,30 @@ DISTRIBUTIONS
       perl 5.006
       strict 0
       warnings 0
+  ExtUtils-ParseXS-3.30
+    pathname: S/SM/SMUELLER/ExtUtils-ParseXS-3.30.tar.gz
+    provides:
+      ExtUtils::ParseXS 3.30
+      ExtUtils::ParseXS::Constants 3.30
+      ExtUtils::ParseXS::CountLines 3.30
+      ExtUtils::ParseXS::Eval 3.30
+      ExtUtils::ParseXS::Utilities 3.30
+      ExtUtils::Typemaps 3.30
+      ExtUtils::Typemaps::Cmd 3.30
+      ExtUtils::Typemaps::InputMap 3.30
+      ExtUtils::Typemaps::OutputMap 3.30
+      ExtUtils::Typemaps::Type 3.30
+    requirements:
+      Carp 0
+      Cwd 0
+      DynaLoader 0
+      Exporter 5.57
+      ExtUtils::CBuilder 0
+      ExtUtils::MakeMaker 6.46
+      File::Basename 0
+      File::Spec 0
+      Symbol 0
+      Test::More 0.47
   File-Copy-Recursive-0.38
     pathname: D/DM/DMUEY/File-Copy-Recursive-0.38.tar.gz
     provides:
@@ -440,11 +477,11 @@ DISTRIBUTIONS
     pathname: G/GA/GAAS/File-Listing-6.04.tar.gz
     provides:
       File::Listing 6.04
-      File::Listing::apache 6.04
-      File::Listing::dosftp 6.04
-      File::Listing::netware 6.04
-      File::Listing::unix 6.04
-      File::Listing::vms 6.04
+      File::Listing::apache undef
+      File::Listing::dosftp undef
+      File::Listing::netware undef
+      File::Listing::unix undef
+      File::Listing::vms undef
     requirements:
       ExtUtils::MakeMaker 0
       HTTP::Date 6
@@ -565,7 +602,7 @@ DISTRIBUTIONS
     pathname: G/GA/GAAS/HTTP-Daemon-6.01.tar.gz
     provides:
       HTTP::Daemon 6.01
-      HTTP::Daemon::ClientConn 6.01
+      HTTP::Daemon::ClientConn undef
     requirements:
       ExtUtils::MakeMaker 0
       HTTP::Date 6
@@ -670,6 +707,22 @@ DISTRIBUTIONS
     requirements:
       ExtUtils::MakeMaker 6.36
       Test::More 0.96
+  HTTP-Tiny-0.058
+    pathname: D/DA/DAGOLDEN/HTTP-Tiny-0.058.tar.gz
+    provides:
+      HTTP::Tiny 0.058
+    requirements:
+      Carp 0
+      ExtUtils::MakeMaker 6.17
+      Fcntl 0
+      IO::Socket 0
+      MIME::Base64 0
+      Socket 0
+      Time::Local 0
+      bytes 0
+      perl 5.006
+      strict 0
+      warnings 0
   Hash-MultiValue-0.16
     pathname: A/AR/ARISTOTLE/Hash-MultiValue-0.16.tar.gz
     provides:
@@ -686,6 +739,14 @@ DISTRIBUTIONS
       Encode 2.10
       Exporter 5.57
       ExtUtils::MakeMaker 6.30
+  IO-Socket-IP-0.38
+    pathname: P/PE/PEVANS/IO-Socket-IP-0.38.tar.gz
+    provides:
+      IO::Socket::IP 0.38
+    requirements:
+      IO::Socket 0
+      Socket 1.97
+      Test::More 0.88
   IPC-Signal-1.00
     pathname: R/RO/ROSCH/IPC-Signal-1.00.tar.gz
     provides:
@@ -696,8 +757,19 @@ DISTRIBUTIONS
     pathname: M/MA/MAKAMAKA/JSON-2.90.tar.gz
     provides:
       JSON 2.90
-      JSON::Backend::PP 2.90
-      JSON::Boolean 2.90
+      JSON::Backend::PP undef
+      JSON::Boolean undef
+      JSON::PP5005 1.10
+      JSON::PP56 1.08
+    requirements:
+      ExtUtils::MakeMaker 0
+      Test::More 0
+  JSON-PP-2.27400
+    pathname: M/MA/MAKAMAKA/JSON-PP-2.27400.tar.gz
+    provides:
+      JSON::PP 2.27400
+      JSON::PP::Boolean undef
+      JSON::PP::IncrParser 1.01
     requirements:
       ExtUtils::MakeMaker 0
       Test::More 0
@@ -782,6 +854,7 @@ DISTRIBUTIONS
       Module::Build::Base 0.4218
       Module::Build::Compat 0.4218
       Module::Build::Config 0.4218
+      Module::Build::ConfigData undef
       Module::Build::Cookbook 0.4218
       Module::Build::Dumper 0.4218
       Module::Build::Notes 0.4218
@@ -963,11 +1036,26 @@ DISTRIBUTIONS
       Test::Requires 0
       Test::SharedFork 0
       perl 5.008001
+  Parse-CPAN-Meta-1.4422
+    pathname: D/DA/DAGOLDEN/Parse-CPAN-Meta-1.4422.tar.gz
+    provides:
+      Parse::CPAN::Meta 1.4422
+    requirements:
+      CPAN::Meta::YAML 0.011
+      Carp 0
+      Encode 0
+      Exporter 0
+      ExtUtils::MakeMaker 0
+      File::Spec 0.80
+      JSON::PP 2.27300
+      perl 5.008001
+      strict 0
   Path-Tiny-0.096
     pathname: D/DA/DAGOLDEN/Path-Tiny-0.096.tar.gz
     provides:
       Path::Tiny 0.096
-      Path::Tiny::Error 0.096
+      Path::Tiny::Error undef
+      flock undef
     requirements:
       Carp 0
       Cwd 0
@@ -1284,6 +1372,59 @@ DISTRIBUTIONS
       List::Util 1.09
       Scalar::Util 1.09
       Test::Builder 0
+  Test-Harness-3.36
+    pathname: L/LE/LEONT/Test-Harness-3.36.tar.gz
+    provides:
+      App::Prove 3.36
+      App::Prove::State 3.36
+      App::Prove::State::Result 3.36
+      App::Prove::State::Result::Test 3.36
+      TAP::Base 3.36
+      TAP::Formatter::Base 3.36
+      TAP::Formatter::Color 3.36
+      TAP::Formatter::Console 3.36
+      TAP::Formatter::Console::ParallelSession 3.36
+      TAP::Formatter::Console::Session 3.36
+      TAP::Formatter::File 3.36
+      TAP::Formatter::File::Session 3.36
+      TAP::Formatter::Session 3.36
+      TAP::Harness 3.36
+      TAP::Harness::Env 3.36
+      TAP::Object 3.36
+      TAP::Parser 3.36
+      TAP::Parser::Aggregator 3.36
+      TAP::Parser::Grammar 3.36
+      TAP::Parser::Iterator 3.36
+      TAP::Parser::Iterator::Array 3.36
+      TAP::Parser::Iterator::Process 3.36
+      TAP::Parser::Iterator::Stream 3.36
+      TAP::Parser::IteratorFactory 3.36
+      TAP::Parser::Multiplexer 3.36
+      TAP::Parser::Result 3.36
+      TAP::Parser::Result::Bailout 3.36
+      TAP::Parser::Result::Comment 3.36
+      TAP::Parser::Result::Plan 3.36
+      TAP::Parser::Result::Pragma 3.36
+      TAP::Parser::Result::Test 3.36
+      TAP::Parser::Result::Unknown 3.36
+      TAP::Parser::Result::Version 3.36
+      TAP::Parser::Result::YAML 3.36
+      TAP::Parser::ResultFactory 3.36
+      TAP::Parser::Scheduler 3.36
+      TAP::Parser::Scheduler::Job 3.36
+      TAP::Parser::Scheduler::Spinner 3.36
+      TAP::Parser::Source 3.36
+      TAP::Parser::SourceHandler 3.36
+      TAP::Parser::SourceHandler::Executable 3.36
+      TAP::Parser::SourceHandler::File 3.36
+      TAP::Parser::SourceHandler::Handle 3.36
+      TAP::Parser::SourceHandler::Perl 3.36
+      TAP::Parser::SourceHandler::RawTAP 3.36
+      TAP::Parser::YAMLish::Reader 3.36
+      TAP::Parser::YAMLish::Writer 3.36
+      Test::Harness 3.36
+    requirements:
+      ExtUtils::MakeMaker 0
   Test-Requires-0.10
     pathname: T/TO/TOKUHIROM/Test-Requires-0.10.tar.gz
     provides:
@@ -1324,16 +1465,16 @@ DISTRIBUTIONS
   Text-Xslate-3.3.9
     pathname: S/SY/SYOHEX/Text-Xslate-3.3.9.tar.gz
     provides:
-      Text::Xslate 3.003009
+      Text::Xslate v3.3.9
       Text::Xslate::Bridge undef
       Text::Xslate::Bridge::Star undef
       Text::Xslate::Compiler undef
-      Text::Xslate::Engine 3.003009
+      Text::Xslate::Engine undef
       Text::Xslate::HashWithDefault undef
-      Text::Xslate::PP 3.003009
+      Text::Xslate::PP v3.3.9
       Text::Xslate::PP::Const undef
       Text::Xslate::PP::Method undef
-      Text::Xslate::PP::Opcode 3.003009
+      Text::Xslate::PP::Opcode v3.3.9
       Text::Xslate::PP::State undef
       Text::Xslate::PP::Type::Macro undef
       Text::Xslate::PP::Type::Pair undef
@@ -1353,7 +1494,7 @@ DISTRIBUTIONS
       ExtUtils::ParseXS 3.18
       File::Copy::Recursive 0
       File::Path 2.07
-      Mouse v2.4.5
+      Mouse 0
       Scalar::Util 1.14
       Test::More 0.88
       Test::Requires 0
@@ -1369,10 +1510,10 @@ DISTRIBUTIONS
       Scalar::Util 0
       Text::Xslate 1.3000
       perl 5.008001
-  Try-Tiny-0.24
-    pathname: E/ET/ETHER/Try-Tiny-0.24.tar.gz
+  Try-Tiny-0.27
+    pathname: E/ET/ETHER/Try-Tiny-0.27.tar.gz
     provides:
-      Try::Tiny 0.24
+      Try::Tiny 0.27
     requirements:
       Carp 0
       Exporter 5.57
@@ -1392,16 +1533,6 @@ DISTRIBUTIONS
       URI::Split 1.71
       URI::URL 5.04
       URI::WithBase 2.20
-      URI::_foreign 1.71
-      URI::_generic 1.71
-      URI::_idna 1.71
-      URI::_ldap 1.71
-      URI::_login 1.71
-      URI::_punycode 1.71
-      URI::_query 1.71
-      URI::_segment 1.71
-      URI::_server 1.71
-      URI::_userpass 1.71
       URI::data 1.71
       URI::file 4.21
       URI::file::Base 1.71
@@ -1467,7 +1598,7 @@ DISTRIBUTIONS
     provides:
       WWW::RobotRules 6.02
       WWW::RobotRules::AnyDBM_File 6.00
-      WWW::RobotRules::InCore 6.02
+      WWW::RobotRules::InCore undef
     requirements:
       AnyDBM_File 0
       ExtUtils::MakeMaker 0
@@ -1477,7 +1608,8 @@ DISTRIBUTIONS
   XSLoader-0.22
     pathname: S/SA/SAPER/XSLoader-0.22.tar.gz
     provides:
-      XSLoader undef
+      DynaLoader undef
+      XSLoader 0.22
     requirements:
       ExtUtils::MakeMaker 0
       Test::More 0.47

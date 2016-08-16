@@ -6,10 +6,12 @@ use DBIx::Sunny;
 use Furl;
 use URI::Escape qw/uri_escape_utf8/;
 
+# $ENV{ISUDA_DB_USER}     // 'root',
+#         db_password   => $ENV{ISUDA_DB_PASSWORD}
 sub dbh {
     my ($self) = @_;
     return $self->{dbh} //= DBIx::Sunny->connect(
-        $ENV{ISUTAR_DSN} // 'dbi:mysql:db=isutar', 'root', 'root', {
+        $ENV{ISUTAR_DSN} // 'dbi:mysql:db=isutar', ($ENV{ISUDA_DB_USER} || 'root'), ($ENV{ISUDA_DB_PASSWORD} || ''), {
             Callbacks => {
                 connected => sub {
                     my $dbh = shift;
