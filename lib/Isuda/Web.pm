@@ -133,7 +133,7 @@ get '/' => [qw/set_name/] => sub {
         } else {
             my $desc_html = $self->htmlify($c, $entry->{description});
             $entry->{html} = $desc_html;
-            $mem->set($entry->{keyword}, $desc_html, 5);
+            $mem->set($entry->{keyword}, $desc_html, 120);
         }
         $entry->{stars} = $stars_of->{$entry->{keyword}};
     }
