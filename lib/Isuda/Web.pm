@@ -114,17 +114,18 @@ get '/' => [qw/set_name/] => sub {
 
     my $mem = Cache::Memcached::Fast->new({
         servers => [ { address => 'localhost:11211' }],
+        utf8 => 1,
     });
 
-    my $res = $mem->get_multi(map { $_->{keyword} } @$entries);
+    my $cache = $mem->get_multi(map { $_->{keyword} } @$entries);
 
     foreach my $entry (@$entries) {
-        if ($res->{$entry->{keyword}}) {
-            $entry->{html} = $res->{$entry->{keyword}};
+        if ($cache->{$entry->{keyword}}) {
+            $entry->{html} = $cache->{$entry->{keyword}};
         } else {
             my $desc_html = $self->htmlify($c, $entry->{description});
             $entry->{html} = $desc_html;
-            $mem->set($entry->{keyword}, encode_utf8($desc_html), 5);
+            $mem->set($entry->{keyword}, $desc_html, 5);
         }
         $entry->{stars} = $stars_of->{$entry->{keyword}};
     }
