@@ -67,6 +67,15 @@ sub memc {
     });
 }
 
+sub all_keywords {
+    my ($self, $c) = @_;
+    return $c->{keywords} ||= sub {
+        return $self->dbh->select_all(qq[
+            SELECT keyword FROM entry ORDER BY `stored_length` DESC;
+        ]);
+    }->();
+}
+
 filter 'set_name' => sub {
     my $app = shift;
     sub {
@@ -282,12 +291,9 @@ post '/keyword/:keyword' => [qw/set_name authenticate/] => sub {
 sub htmlify {
     my ($self, $c, $content) = @_;
     return '' unless defined $content;
-    my $keywords = $self->dbh->select_all(qq[
-        SELECT * FROM entry ORDER BY `stored_length` DESC;
-    ]);
 
     my %kw2sha;
-    my $re = join '|', map { quotemeta $_->{keyword} } @$keywords;
+    my $re = join '|', map { quotemeta $_->{keyword} } @{$self->all_keywords($c)};
     $content =~ s{($re)}{
         my $kw = $1;
         $kw2sha{$kw} = "isuda_" . sha1_hex(encode_utf8($kw));
