@@ -12,3 +12,4 @@ requires 'Plack::App::Proxy';
 requires 'Plack::Session';
 requires 'Starlet';
 requires 'Furl';
+requires 'Proclet';
