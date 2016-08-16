@@ -101,6 +101,9 @@ get '/initialize' => sub {
     my $origin = config('isutar_origin');
     my $url = URI->new("$origin/initialize");
     Furl->new->get($url);
+
+    $self->memc()->flush_all();
+
     $c->render_json({
         result => 'ok',
     });
@@ -167,6 +170,8 @@ post '/keyword' => [qw/set_name authenticate/] => sub {
         ON DUPLICATE KEY UPDATE
         author_id = ?, keyword = ?, stored_length = ?, description = ?, updated_at = NOW()
     ], ($user_id, $keyword, length($keyword), $description) x 2);
+
+    $self->memc()->flush_all();
 
     $c->redirect('/');
 };
@@ -261,6 +266,9 @@ post '/keyword/:keyword' => [qw/set_name authenticate/] => sub {
         DELETE FROM entry
         WHERE keyword = ?
     ], $keyword);
+
+    $self->memc()->flush_all();
+
     $c->redirect('/');
 };
 
